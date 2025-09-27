@@ -12,6 +12,7 @@ $dbname = "Portfolio_Database";
 // 2. Validate Request Method
 // ------------------------------------
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
+    // Prevent direct script access
     header("Location: index.html");
     exit();
 }
@@ -23,23 +24,28 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection and handle failure securely
 if ($conn->connect_error) {
-    // ⚠️ Security enhancement: Log the error on the server, and redirect the user
+    // Log the error for developer review (instead of exposing it to the user)
     error_log("MySQL Connection Failed: " . $conn->connect_error);
-    header("Location: index.html#contact?status=error&msg=" . urlencode("Server connection failed."));
+    
+    // Redirect with a generic error status
+    header("Location: index.html#contact?status=error&msg=" . urlencode("Connection Error: Server could not process your request."));
     exit();
 }
 
 // ------------------------------------
 // 4. Sanitize and Prepare Data
 // ------------------------------------
+// Check if all required fields are set
 if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
     
     $name    = trim($_POST['name']);
     $email   = trim($_POST['email']);
     $message = trim($_POST['message']);
 
-    // Use prepared statements
+    // Use prepared statements to prevent SQL Injection
     $stmt = $conn->prepare("INSERT INTO contact_submissions (name, email, message) VALUES (?, ?, ?)");
+    
+    // "sss" means three parameters, all strings
     $stmt->bind_param("sss", $name, $email, $message);
 
     // ------------------------------------
@@ -51,14 +57,16 @@ if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
     } else {
         // Query Error
         error_log("MySQL Query Failed: " . $stmt->error);
-        header("Location: index.html#contact?status=error&msg=" . urlencode("Failed to save message."));
+        
+        // Redirect with a specific error message
+        header("Location: index.html#contact?status=error&msg=" . urlencode("Database Error: Failed to save your message."));
     }
 
     $stmt->close();
     
 } else {
     // Missing fields error
-    header("Location: index.html#contact?status=error&msg=" . urlencode("Missing required form fields."));
+    header("Location: index.html#contact?status=error&msg=" . urlencode("Please fill out all required fields."));
 }
 
 $conn->close();
