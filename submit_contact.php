@@ -4,8 +4,8 @@
 // 1. Database and Server Configuration
 // ------------------------------------
 $servername = "localhost";
-$username = "root";    
-$password = "@Rahul123"; 
+$username = "root";    // REPLACE with your ACTUAL MySQL username
+$password = "@Rahul123"; // REPLACE with your ACTUAL MySQL password
 $dbname = "Portfolio_Database";    
 
 // ------------------------------------
@@ -24,10 +24,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection and handle failure securely
 if ($conn->connect_error) {
-    // Log the error for developer review (instead of exposing it to the user)
+    // Log the error on the server side and redirect the user with a generic message
     error_log("MySQL Connection Failed: " . $conn->connect_error);
     
-    // Redirect with a generic error status
     header("Location: index.html#contact?status=error&msg=" . urlencode("Connection Error: Server could not process your request."));
     exit();
 }
@@ -35,7 +34,6 @@ if ($conn->connect_error) {
 // ------------------------------------
 // 4. Sanitize and Prepare Data
 // ------------------------------------
-// Check if all required fields are set
 if (isset($_POST['name'], $_POST['email'], $_POST['message'])) {
     
     $name    = trim($_POST['name']);
