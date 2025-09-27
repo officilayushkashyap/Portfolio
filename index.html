@@ -186,6 +186,7 @@
             font-weight: 700;
             background: var(--gradient-primary);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-decoration: none;
             display: flex;
@@ -1432,34 +1433,43 @@
                         <div class="contact-icon" aria-hidden="true">📸</div>
                         <div>
                             <strong>Instagram</strong><br>
-                            <a href="https://www.instagram.com/_official_ayush_kashyap_/" target="_blank" rel="noopener noreferrer">Follow me</a>
+                            <a href="https://www.instagram.com/_official_ayush_kashyap_/" target="_blank"
+                                rel="noopener noreferrer">Follow me</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon" aria-hidden="true">📘</div>
                         <div>
                             <strong>Facebook</strong><br>
-                            <a href="https://www.facebook.com/officialayushkashyap" target="_blank" rel="noopener noreferrer">Connect with me</a>
+                            <a href="https://www.facebook.com/officialayushkashyap" target="_blank"
+                                rel="noopener noreferrer">Connect with me</a>
                         </div>
                     </div>
                 </div>
                 <form class="contact-form scroll-animate" id="contactForm" action="#" method="POST">
                     <p>Send me a message directly!</p>
-                    <div class="form-group">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" name="name" class="form-input" autocomplete="name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-input" autocomplete="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-textarea" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary form-submit">Send Message</button>
-                    <p id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: 600;"></p>
-                </form>
+                    <form class="contact-form scroll-animate" id="contactForm" action="submit_contact.php"
+                        method="POST">
+
+                        <div class="form-group">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" id="name" name="name" class="form-input" autocomplete="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" id="email" name="email" class="form-input" autocomplete="email"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea id="message" name="message" class="form-textarea" required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+                        <p id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: 600;"></p>
+                    </form>
             </div>
         </section>
     </main>
@@ -1491,15 +1501,15 @@
                             <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                         </svg>
                     </a>
-                    <a href="https://www.instagram.com/_official_ayush_kashyap_/" target="_blank" class="social-link" aria-label="Instagram Profile"
-                        rel="noopener noreferrer">
+                    <a href="https://www.instagram.com/_official_ayush_kashyap_/" target="_blank" class="social-link"
+                        aria-label="Instagram Profile" rel="noopener noreferrer">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M10 0C4.477 0 0 4.477 0 10s4.477 10 10 10 10-4.477 10-10S15.523 0 10 0zm3.25 15.688H6.75A2.438 2.438 0 014.313 13.25V6.75A2.438 2.438 0 016.75 4.313h6.5A2.438 2.438 0 0115.688 6.75v6.5a2.438 2.438 0 01-2.438 2.438zm-6.5-11.375A.875.875 0 107.625 5.25a.875.875 0 00-.875-.875zm4 8.75a3.125 3.125 0 100-6.25 3.125 3.125 0 000 6.25z" />
                         </svg>
                     </a>
-                    <a href="https://www.facebook.com/officialayushkashyap" target="_blank" class="social-link" aria-label="Facebook Profile"
-                        rel="noopener noreferrer">
+                    <a href="https://www.facebook.com/officialayushkashyap" target="_blank" class="social-link"
+                        aria-label="Facebook Profile" rel="noopener noreferrer">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 20 20">
                             <path
                                 d="M20 10.001A10 10 0 101.528 17.5l.092-.093L3.8 15.228A.5.5 0 004.14 15h.718a7.51 7.51 0 007.828-6.17c0-.28-.236-.505-.515-.505h-2.15c-.28 0-.515.225-.515.505v.99c0 .28-.235.505-.515.505H6.515c-.28 0-.515.225-.515.505v.99c0 .28-.235.505-.515.505H4.14c-.28 0-.515.225-.515.505V13c0 .55.45.995 1.005.995h.858c.28 0 .515.225.515.505v.99c0 .28-.235.505-.515.505h-1.04c.18.59.453 1.15.808 1.66l.05.05.093.093C4.192 18.47 6.848 19.998 10 19.998c5.523 0 10-4.477 10-10zM14.99 10a5 5 0 01-5 5H7.515a.515.515 0 01-.515-.515v-1.53c0-.28.235-.505.515-.505h1.53c.28 0 .515-.225.515-.505v-.99c0-.28.236-.505.515-.505h2.15c.28 0 .515-.225.515-.505V7.515a.515.515 0 01.515-.515H15V10z" />
@@ -1524,8 +1534,10 @@
                     <li><a href="https://linkedin.com/in/ayush-kumar-23091533b" target="_blank"
                             rel="noopener noreferrer">LinkedIn</a></li>
                     <li><a href="mailto:officialayushkashyap123@gmail.com">Email</a></li>
-                    <li><a href="https://www.instagram.com/_official_ayush_kashyap_/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-                    <li><a href="https://www.facebook.com/officialayushkashyap" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><a href="https://www.instagram.com/_official_ayush_kashyap_/" target="_blank"
+                            rel="noopener noreferrer">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/officialayushkashyap" target="_blank"
+                            rel="noopener noreferrer">Facebook</a></li>
                 </ul>
             </div>
         </div>
@@ -1693,50 +1705,87 @@
 
             animateElements.forEach(el => observer.observe(el));
 
+// Function to check URL query parameters after redirect
+function checkSubmissionStatus() {
+    const params = new URLSearchParams(window.location.search);
+    const status = params.get('status');
+    const formMessage = document.getElementById('formMessage');
 
+    if (status) {
+        // Clear the URL bar of the query string for a cleaner look
+        history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+        
+        // Define message properties based on status
+        if (status === 'success') {
+            formMessage.textContent = "Thank you! Your message has been saved successfully.";
+            formMessage.style.color = 'var(--accent-color)'; // Green color
+        } else if (status === 'error') {
+            formMessage.textContent = "Submission failed. Please try again or check server connection.";
+            formMessage.style.color = 'red'; // Red error color
+        }
+        
+        // Clear the message after 5 seconds
+        setTimeout(() => {
+            formMessage.textContent = "";
+        }, 5000);
+    }
+}
+
+// ⚠️ CALL the function when the page loads
+document.addEventListener('DOMContentLoaded', () => {
+    // ... all your existing setup (loader, theme, etc.)
+    
+    // Call the new status check function
+    checkSubmissionStatus(); 
+
+    // NOTE: Your existing code for theme toggle, typing effect, etc., goes here.
+    // Ensure you REMOVED the old form simulation placeholder code (Section 7).
+});
             // --- 7. Contact Form Submission (Placeholder) ---
             const contactForm = document.getElementById('contactForm');
             const formMessage = document.getElementById('formMessage');
 
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-
-                // Simplified validation check (browser handles required)
-                const isFormValid = contactForm.checkValidity();
-                if (!isFormValid) {
-                    formMessage.textContent = "Please fill out all required fields correctly.";
-                    formMessage.style.color = 'red';
-                    return;
-                }
-
-                // Disable button and show sending status
-                const submitButton = contactForm.querySelector('.form-submit');
-                submitButton.disabled = true;
-                submitButton.textContent = "Sending...";
-                formMessage.textContent = "Sending message...";
-                formMessage.style.color = getCssVar('--primary-color');
-
-                // Simulate form submission success after 2 seconds
-                setTimeout(() => {
-                    formMessage.textContent = "Thank you! Your message has been sent.";
-                    formMessage.style.color = getCssVar('--accent-color');
-                    contactForm.reset();
-
-                    // Re-enable button
-                    submitButton.disabled = false;
-                    submitButton.textContent = "Send Message";
-
-                    // Clear message after a few seconds
-                    setTimeout(() => {
-                        formMessage.textContent = "";
-                    }, 5000);
-
-                }, 2000);
-
-                // NOTE: For a real deployment, replace the setTimeout block with actual AJAX/Fetch API call
-                // to a service like Formspree or your own backend endpoint.
+                // ... all the simulation code ...
             });
+
+            // Simplified validation check (browser handles required)
+            const isFormValid = contactForm.checkValidity();
+            if (!isFormValid) {
+                formMessage.textContent = "Please fill out all required fields correctly.";
+                formMessage.style.color = 'red';
+                return;
+            }
+
+            // Disable button and show sending status
+            const submitButton = contactForm.querySelector('.form-submit');
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+            formMessage.textContent = "Sending message...";
+            formMessage.style.color = getCssVar('--primary-color');
+
+            // Simulate form submission success after 2 seconds
+            setTimeout(() => {
+                formMessage.textContent = "Thank you! Your message has been sent.";
+                formMessage.style.color = getCssVar('--accent-color');
+                contactForm.reset();
+
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = "Send Message";
+
+                // Clear message after a few seconds
+                setTimeout(() => {
+                    formMessage.textContent = "";
+                }, 5000);
+
+            }, 2000);
+
+            // NOTE: For a real deployment, replace the setTimeout block with actual AJAX/Fetch API call
+            // to a service like Formspree or your own backend endpoint.
         });
+    
     </script>
 </body>
 
