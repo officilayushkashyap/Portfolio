@@ -1447,28 +1447,31 @@
                     </div>
                 </div>
 
-                <form class="contact-form scroll-animate" id="contactForm" action="submit_contact.php" method="POST">
-                    <p>Send me a message directly!</p>
+               <form class="contact-form scroll-animate" id="contactForm" 
+    action="https://formspree.io/f/xwprvrpr" method="POST"> 
+    
+    <input type="hidden" name="_replyto" value="email">
 
-                    <div class="form-group">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" id="name" name="name" class="form-input" autocomplete="name" required>
-                    </div>
+    <p>Send me a message directly!</p>
 
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" id="email" name="email" class="form-input" autocomplete="email" required>
-                    </div>
+    <div class="form-group">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" id="name" name="name" class="form-input" autocomplete="name" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="_replyto" class="form-input" autocomplete="email" required>
+    </div>
+    
+    <div class="form-group">
+        <label for="message" class="form-label">Message</label>
+        <textarea id="message" name="message" class="form-textarea" required></textarea>
+    </div>
 
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" name="message" class="form-textarea" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary form-submit">Send Message</button>
-                    <p id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: 600;"></p>
-                </form>
-
+    <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+    <p id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: 600;"></p>
+</form>
             </div>
         </section>
     </main>
@@ -1553,42 +1556,6 @@
     </a>
 
     <script>
-        // Function to check URL query parameters after redirect
-        function checkSubmissionStatus() {
-            const params = new URLSearchParams(window.location.search);
-            const status = params.get('status');
-            const formMessage = document.getElementById('formMessage');
-
-            // Find the contact section to scroll to it on status update
-            const contactSection = document.getElementById('contact');
-            
-            if (status) {
-                // Scroll to the contact form to show the message immediately
-                if (contactSection) {
-                    contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-
-                // Define message properties based on status
-                if (status === 'success') {
-                    formMessage.textContent = "Thank you! Your message has been saved successfully.";
-                    formMessage.style.color = 'var(--accent-color)'; // Green color
-                } else if (status === 'error') {
-                    // Read the detailed error message from PHP if provided, otherwise show generic message
-                    const errorMsg = params.get('msg') || "Submission failed. Please try again or check server connection.";
-                    formMessage.textContent = errorMsg;
-                    formMessage.style.color = 'red'; // Red error color
-                }
-                
-                // Clear the URL bar of the query string for a cleaner look
-                history.replaceState({}, document.title, window.location.pathname + window.location.hash);
-
-                // Clear the message after 5 seconds
-                setTimeout(() => {
-                    formMessage.textContent = "";
-                }, 5000);
-            }
-        }
-
         document.addEventListener('DOMContentLoaded', () => {
             const loader = document.getElementById('loader');
             const navbar = document.getElementById('navbar');
