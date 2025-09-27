@@ -1446,7 +1446,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <form class="contact-form scroll-animate" id="contactForm" action="submit_contact.php" method="POST">
                     <p>Send me a message directly!</p>
 
@@ -1468,7 +1468,7 @@
                     <button type="submit" class="btn btn-primary form-submit">Send Message</button>
                     <p id="formMessage" style="margin-top: 1rem; text-align: center; font-weight: 600;"></p>
                 </form>
-                
+
             </div>
         </section>
     </main>
@@ -1573,7 +1573,7 @@
                     formMessage.textContent = "Thank you! Your message has been saved successfully.";
                     formMessage.style.color = 'var(--accent-color)'; // Green color
                 } else if (status === 'error') {
-                    // You can optionally read the detailed error message from PHP if provided
+                    // Read the detailed error message from PHP if provided, otherwise show generic message
                     const errorMsg = params.get('msg') || "Submission failed. Please try again or check server connection.";
                     formMessage.textContent = errorMsg;
                     formMessage.style.color = 'red'; // Red error color
